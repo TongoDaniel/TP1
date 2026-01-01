@@ -1,0 +1,36 @@
+# VS Code
+.vscode/
+*.code-workspace
+
+# Build folders
+build/
+cmake-build-*/
+
+# CMake generated
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+compile_commands.json
+
+# MSVC / Visual Studio
+.vs/
+*.sln
+*.vcxproj*
+*.pdb
+*.ilk
+*.obj
+*.exe
+*.dll
+*.lib
+*.exp
+
+# MinGW / GCC / Clang
+*.o
+*.a
+*.out
+
+# Windows junk
+Thumbs.db
+Desktop.ini

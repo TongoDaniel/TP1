@@ -7,10 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Warnings (qualité) selon compilateur
-if(g++)
-  add_compile_options(/W4 /permissive-)
-else()
-  add_compile_options(-Wall -Wextra -Wpedantic)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 endif()
 
 add_executable(TP1
@@ -19,3 +17,7 @@ add_executable(TP1
 
 # Si tu utilises include/
 target_include_directories(TP1 PRIVATE include)
+
+# cmake -S . -B build -G Ninja
+# cmake --build build 
+# build\TP1.exe

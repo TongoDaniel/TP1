@@ -1,13 +1,17 @@
 #include "../include/date.h"
+#include <iostream>
 #include <stdexcept>  // for std::invalid_argument
 #include <string>
 
 
-
-Date::Date(int month, int day) : month_(month), day_(day) {
+Date::Date(int year, int month, int day) : year_(year), month_(month), day_(day) {
     if (!is_date(month, day)) {
-        throw std::invalid_argument("Invalid date: " + std::to_string(month) + "/" + std::to_string(day));
+        throw std::invalid_argument("Invalid date: " + std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year));
     }
+}
+
+int Date::year() const {
+	return year_;
 }
 
 int Date::month() const {
@@ -27,36 +31,42 @@ int Date::dayOfYear() const{
     return day;
 }
 
+void Date::updateYear(int new_year) {
+    year_ = new_year;
+}
 
 void Date::updateMonth(int new_month) {
     if (!is_date(new_month, day_)) {
-        throw std::invalid_argument("Invalid date: " + std::to_string(new_month) + "/" + std::to_string(day_));
+        throw std::invalid_argument("Invalid date: " + std::to_string(day_) + "/" + std::to_string(new_month) + "/" + std::to_string(year_));
     }
     month_ = new_month;
 }
 
 void Date::updateDay(int new_day) {
     if (!is_date(month_, new_day)) {
-        throw std::invalid_argument("Invalid date: " + std::to_string(month_) + "/" + std::to_string(new_day));
+        throw std::invalid_argument("Invalid date: " + std::to_string(new_day) + "/" + std::to_string(month_) + "/" + std::to_string(year_));
     }
     day_ = new_day;
 }
 
 Date Date::nextDay() const {
     if (day_==get_days_in_month(month_)) {
-        return Date((month_)%12 + 1, 1);
+        if (month_==12) return Date(year_+1, 1, 1);
+        return Date(year_, month_ + 1, 1);
     }
-    return Date(month_, day_+1);
+    return Date(year_, month_, day_+1);
 }
 
 bool Date::isBefore(const Date& other) const {
-    if (month_<other.month_) return true;
-    if ((month_ == other.month_) && (day_<other.day_)) return true;
+    if (year_<other.year_) return true;
+    if ((year_ == other.year_) && (month_<other.month_)) return true;
+    if ((year_ == other.year_) && (month_ == other.month_) && (day_<other.day_)) return true;
     return false;
 }
 bool Date::operator < (const Date& other) const {
-    if (month_<other.month_) return true;
-    if ((month_ == other.month_) && (day_<other.day_)) return true;
+    if (year_<other.year_) return true;
+    if ((year_ == other.year_) && (month_<other.month_)) return true;
+    if ((year_ == other.year_) && (month_ == other.month_) && (day_<other.day_)) return true;
     return false;
 }
 
@@ -80,7 +90,7 @@ int get_days_in_month(int month) {
 }
 
 std::string to_string(const Date& d) {
-    return std::to_string(d.month()) + "/" + std::to_string(d.day());
+    return std::to_string(d.day()) + "/" + std::to_string(d.month()) + "/" + std::to_string(d.year());
 }
 
 void swap(Date& d1, Date& d2) {

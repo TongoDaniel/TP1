@@ -13,6 +13,7 @@ endif()
 
 add_executable(TP1
   src/main.cpp
+  src/date.cpp
 )
 
 # Si tu utilises include/

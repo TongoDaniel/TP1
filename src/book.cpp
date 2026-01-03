@@ -1,7 +1,7 @@
 #include "../include/book.h"
 
 Book::Book(const std::string& title,
-           const std::string& author,
+           const Author& author,
            const std::string& language,
            const std::string& gender,
            const Date& publication_date,
@@ -17,7 +17,7 @@ Book::Book(const std::string& title,
 std::string Book::title() const {
     return title_;
 }
-std::string Book::author() const {
+Author Book::author() const {
     return author_;
 }
 std::string Book::language() const {
@@ -40,6 +40,6 @@ void Book::setStatus(bool available) {
 }
 
 std::string to_string(const Book& b) {
-    return "Title: " + b.title() + ", Author: " + b.author() + ", Language: " + b.language() + ", Gender: " + b.gender() +
-           ", Publication Date: " + to_string(b.publicationDate()) + ", ISBN: " + b.ISBN();
+    return "Title: " + b.title() + "\nAuthor: " + b.author().nameSurname() + "\nLanguage: " + b.language() + "\nGender: " + b.gender() +
+           "\nPublication Date: " + to_string(b.publicationDate()) + "\nISBN: " + b.ISBN();
 }

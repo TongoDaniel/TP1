@@ -1,20 +1,21 @@
 #ifndef BOOK_H
 #define BOOK_H
 #include <string>
+#include "author.h"
 #include "date.h"
 #include <vector>
 
 class Book {
 public:
     Book(const std::string& title,
-         const std::string& author,
+         const Author& author,
          const std::string& language,
          const std::string& gender,
          const Date& publication_date,
          const std::string& ISBN);
     
     std::string title() const;
-    std::string author() const;
+    Author author() const;
     std::string language() const;
     std::string gender() const;
     Date publicationDate() const;
@@ -26,7 +27,7 @@ public:
 
 private:
     std::string title_;
-    std::string author_;
+    Author author_;
     std::string language_;
     std::string gender_;
     Date publication_date_;

@@ -14,6 +14,7 @@ endif()
 add_executable(TP1
   src/main.cpp
   src/date.cpp
+  src/book.cpp
 )
 
 # Si tu utilises include/

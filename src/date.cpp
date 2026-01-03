@@ -1,7 +1,5 @@
 #include "../include/date.h"
-#include <iostream>
 #include <stdexcept>  // for std::invalid_argument
-#include <string>
 
 
 Date::Date(int year, int month, int day) : year_(year), month_(month), day_(day) {

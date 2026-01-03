@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/date.h"
+#include "../include/book.h"
 
 int main() {
     Date date1(2023, 12, 31);
@@ -12,5 +12,9 @@ int main() {
 
     std::cout << "Hello, World!" << std::endl;
     std::cout << "Happy New Yea!" << std::endl;
+
+    Book book1("The Great Gatsby", "F. Scott Fitzgerald", "English", "Fiction", Date(1925, 4, 10), "9780743273565");
+    std::cout << "\tBook info: \n" << book1.toString() << std::endl;
+
     return 0;
 }

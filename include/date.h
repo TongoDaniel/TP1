@@ -27,7 +27,7 @@ private:
 // Free functions
 bool is_date(int month, int day);
 int get_days_in_month(int month);
-std::string to_string(const Date& d) ;
+std::string to_string(const Date& d);
 void swap(Date& d1, Date& d2);
 
 

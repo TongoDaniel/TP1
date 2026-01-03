@@ -4,8 +4,23 @@
 
 Date::Date(int year, int month, int day) : year_(year), month_(month), day_(day) {
     if (!is_date(month, day)) {
-        throw std::invalid_argument("Invalid date: " + std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year));
+        setDate();
     }
+}
+void Date::setDate() {
+    int year=year_, month=month_, day=day_;
+    while (!is_date(month, day)) {
+        std::cout << "Invalid date: " + std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year) << std::endl;
+        std::cout << "Enter year: ";
+        std::cin >> year;
+        std::cout << "Enter month: ";
+        std::cin >> month;
+        std::cout << "Enter day: ";
+        std::cin >> day;
+    }
+    year_ = year;
+    month_ = month;
+    day_ = day;
 }
 
 int Date::year() const {

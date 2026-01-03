@@ -2,7 +2,6 @@
 #define BOOK_H
 
 #include "author.h"
-#include "date.h"
 #include <vector>
 
 class Book {

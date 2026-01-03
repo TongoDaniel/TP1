@@ -1,6 +1,7 @@
 #ifndef DATE_H
 #define DATE_H
 
+#include <iostream>
 #include <string>
 
 class Date {
@@ -10,6 +11,7 @@ public:
    int month() const;
    int day() const;
 
+   void setDate();
    void updateYear(int new_year);
    void updateMonth(int new_month);
    void updateDay(int new_day);

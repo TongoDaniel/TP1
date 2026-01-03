@@ -32,8 +32,14 @@ Date Book::publicationDate() const {
 std::string Book::ISBN() const {
     return ISBN_;
 }
+bool Book::isAvailable() const {
+    return available_;
+}
+void Book::setStatus(bool available) {
+    available_ = available;
+}
 
-std::string Book::toString() const {
-    return "Title: " + title_ + ", Author: " + author_ + ", Language: " + language_ + ", Gender: " + gender_ +
-           ", Publication Date: " + to_string(publication_date_) + ", ISBN: " + ISBN_;
+std::string to_string(const Book& b) {
+    return "Title: " + b.title() + ", Author: " + b.author() + ", Language: " + b.language() + ", Gender: " + b.gender() +
+           ", Publication Date: " + to_string(b.publicationDate()) + ", ISBN: " + b.ISBN();
 }

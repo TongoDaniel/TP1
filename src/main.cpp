@@ -14,7 +14,7 @@ int main() {
     std::cout << "Happy New Yea!" << std::endl;
 
     Book book1("The Great Gatsby", "F. Scott Fitzgerald", "English", "Fiction", Date(1925, 4, 10), "9780743273565");
-    std::cout << "\tBook info: \n" << book1.toString() << std::endl;
+    std::cout << "\tBook info: \n" << to_string(book1) << std::endl;
 
     return 0;
 }

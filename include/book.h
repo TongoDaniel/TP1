@@ -19,9 +19,9 @@ public:
     std::string gender() const;
     Date publicationDate() const;
     std::string ISBN() const;
+    bool isAvailable() const;
+    void setStatus(bool available);
 //    std::vector<int> identifiers() const;
-
-    std::string toString() const;
 
 
 private:
@@ -31,7 +31,10 @@ private:
     std::string gender_;
     Date publication_date_;
     std::string ISBN_;
+    bool available_ = true;
 //    std::vector<int> identifiers_;
 };
+
+std::string to_string(const Book& book);
 
 #endif // BOOK_H

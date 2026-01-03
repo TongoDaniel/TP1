@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/book.h"
+#include "../include/reader.h"
 
 int main() {
     Date date1(2023, 12, 31);
@@ -18,6 +18,9 @@ int main() {
 
     Book book1("C++ Programming", author1, "English", "Educational", Date(2020, 6, 1), "123-4567890123");
     std::cout << "\tBook info: \n" << to_string(book1) << std::endl << std::endl;
+
+    Reader reader1("Alice", "Smith");
+    std::cout << "\tReader info: \n" << to_string(reader1) << std::endl << std::endl;
 
     return 0;
 }

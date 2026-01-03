@@ -1,7 +1,6 @@
 #ifndef AUTHOR_H
 #define AUTHOR_H
 
-#include <string>
 #include "date.h"
 
 class Author {

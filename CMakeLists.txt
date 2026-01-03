@@ -16,6 +16,7 @@ add_executable(TP1
   src/date.cpp
   src/book.cpp
   src/author.cpp
+  src/reader.cpp
 )
 
 # Si tu utilises include/

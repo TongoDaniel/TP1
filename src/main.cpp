@@ -1,4 +1,5 @@
-#include "../include/reader.h"
+#include "../include/borrow.h"
+
 
 int main() {
     Date date1(2023, 12, 31);
@@ -20,6 +21,16 @@ int main() {
 
     Reader reader1("Alice", "Smith");
     std::cout << "\tReader info: \n" << to_string(reader1) << std::endl << std::endl;
+
+    if (book1.isAvailable()) {
+        book1.setStatus(false); 
+        book1.addBorrower(reader1.memberID()); 
+        reader1.addBorrowedBook(book1.ISBN()); 
+        Borrow borrow1(reader1, book1, Date(2024, 1, 10), Date(2024, 1, 24), false); 
+        std::cout << "The book \"" << book1.title() << "\" has been borrowed by " << reader1.name() << " " << reader1.surname() << "." << std::endl;
+    } else {
+        std::cout << "The book \"" << book1.title() << "\" is currently not available." << std::endl;
+    }
 
     return 0;
 }

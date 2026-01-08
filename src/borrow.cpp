@@ -10,6 +10,12 @@ Borrow::Borrow(const Reader& borrower,
       borrowDate_(borrowDate),
       returnDate_(returnDate),
       isReturned_(isReturned) {}
+Borrow::Borrow(const Borrow& other)
+    : borrower_(other.borrower_),
+      borrowedBook_(other.borrowedBook_),
+      borrowDate_(other.borrowDate_),
+      returnDate_(other.returnDate_),
+      isReturned_(other.isReturned_) {}
 
 Reader Borrow::borrower() const {
     return borrower_;
@@ -26,3 +32,4 @@ Date Borrow::returnDate() const {
 bool Borrow::returnStatus() const {
     return isReturned_;
 } 
+

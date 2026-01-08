@@ -13,6 +13,14 @@ Book::Book(const std::string& title,
                         ISBN_(ISBN) {
 
 }
+Book::Book(const Book& other)
+    : title_(other.title_),
+      author_(other.author_),
+      language_(other.language_),
+      gender_(other.gender_),
+      publication_date_(other.publication_date_),
+        ISBN_(other.ISBN_){
+}
 
 std::string Book::title() const {
     return title_;
@@ -37,6 +45,13 @@ bool Book::isAvailable() const {
 }
 void Book::setStatus(bool available) {
     available_ = available;
+}
+
+std::vector<std::string> Book::borrowers() const {
+    return idBorrowers_;
+}
+void Book::addBorrower(const std::string& idBorrowers) {
+    idBorrowers_.push_back(idBorrowers);
 }
 
 std::string to_string(const Book& b) {

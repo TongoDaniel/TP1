@@ -10,6 +10,7 @@ public:
            const Date& borrowDate,
            const Date& returnDate,
            bool isReturned);
+    Borrow(const Borrow& other);
 
     Reader borrower() const;
     Book borrowedBook() const;

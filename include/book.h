@@ -2,6 +2,7 @@
 #define BOOK_H
 
 #include "author.h"
+#include "reader.h"
 #include <vector>
 
 class Book {
@@ -12,6 +13,7 @@ public:
          const std::string& gender,
          const Date& publication_date,
          const std::string& ISBN);
+    Book(const Book& other);
     
     std::string title() const;
     Author author() const;
@@ -21,7 +23,9 @@ public:
     std::string ISBN() const;
     bool isAvailable() const;
     void setStatus(bool available);
-//    std::vector<int> identifiers() const;
+
+    std::vector<std::string> borrowers() const;
+    void addBorrower(const std::string& idBorrowers);
 
 
 private:
@@ -32,7 +36,7 @@ private:
     Date publication_date_;
     std::string ISBN_;
     bool available_ = true;
-//    std::vector<int> identifiers_;
+    std::vector<std::string> idBorrowers_;
 };
 
 std::string to_string(const Book& book);

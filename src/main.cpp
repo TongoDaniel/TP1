@@ -1,18 +1,5 @@
 #include "../include/borrow.h"
 
-void loanBook(Reader& loaner, Book& borrowRecord) {
-    
-    if (borrowRecord.isAvailable()) {
-        borrowRecord.setStatus(false); 
-        borrowRecord.addBorrower(loaner.memberID()); 
-        loaner.addBorrowedBook(borrowRecord.ISBN()); 
-        Borrow borrow1(loaner, borrowRecord, Date(2024, 1, 10), Date(2024, 1, 24), false); 
-        std::cout << "The book \"" << borrowRecord.title() << "\" has been borrowed by " << loaner.name() << " " << loaner.surname() << "." << std::endl;
-    } else {
-        std::cout << "The book \"" << borrowRecord.title() << "\" is currently not available." << std::endl;
-    }
-}
-
 
 int main() {
     Date date1(2023, 12, 31);
@@ -27,19 +14,19 @@ int main() {
     std::cout << "Happy New Yea!" << std::endl << std::endl;
 
     Author author1("John", "Doe", Date(1980, 5, 15));
-    std::cout << "\tAuthor info: \n" << to_string(author1) << std::endl;
+    std::cout << "\tAuthor 1 info: \n" << to_string(author1) << std::endl;
     Author author2("Jane", "Austen", Date(1775, 12, 16));
-    std::cout << "\tAuthor info: \n" << to_string(author2) << std::endl << std::endl;
+    std::cout << "\tAuthor 2 info: \n" << to_string(author2) << std::endl << std::endl;
 
     Book book1("C++ Programming", author1, "English", "Educational", Date(2020, 6, 1), "123-4567890123");
-    std::cout << "\tBook info: \n" << to_string(book1) << std::endl;
+    std::cout << "\tBook 1 info: \n" << to_string(book1) << std::endl;
     Book book2("Pride and Prejudice", author2, "English", "Fiction", Date(1813, 1, 28), "987-6543210987");
-    std::cout << "\tBook info: \n" << to_string(book2) << std::endl << std::endl;
+    std::cout << "\tBook 2 info: \n" << to_string(book2) << std::endl << std::endl;
 
     Reader reader1("Alice", "Smith");
-    std::cout << "\tReader info: \n" << to_string(reader1) << std::endl;
+    std::cout << "\tReader 1 info: \n" << to_string(reader1) << std::endl;
     Reader reader2("Bob", "Johnson");
-    std::cout << "\tReader info: \n" << to_string(reader2) << std::endl << std::endl;
+    std::cout << "\tReader 2 info: \n" << to_string(reader2) << std::endl << std::endl;
 
     loanBook(reader1, book1);
     loanBook(reader2, book1);

@@ -18,6 +18,7 @@ add_executable(TP1
   src/author.cpp
   src/reader.cpp
   src/borrow.cpp
+  src/library.cpp
 )
 
 # Si tu utilises include/

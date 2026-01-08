@@ -33,3 +33,17 @@ bool Borrow::returnStatus() const {
     return isReturned_;
 } 
 
+void loanBook(Reader& loaner, Book& borrowRecord) {
+    
+    if (borrowRecord.isAvailable()) {
+        borrowRecord.setStatus(false); 
+        borrowRecord.addBorrower(loaner.memberID()); 
+
+        loaner.addBorrowedBook(borrowRecord.ISBN()); 
+        
+        Borrow borrow1(loaner, borrowRecord, Date(2024, 1, 10), Date(2024, 1, 24), false); 
+        std::cout << "The book \"" << borrowRecord.title() << "\" has been borrowed by " << loaner.name() << " " << loaner.surname() << "." << std::endl;
+    } else {
+        std::cout << "The book \"" << borrowRecord.title() << "\" is currently not available." << std::endl;
+    }
+}

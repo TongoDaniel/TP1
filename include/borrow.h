@@ -26,4 +26,6 @@ private:
     bool isReturned_;
 };
 
+void loanBook(Reader& loaner, Book& borrowRecord);
+
 #endif // BORROW_H

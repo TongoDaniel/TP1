@@ -55,6 +55,6 @@ void Book::addBorrower(const std::string& idBorrowers) {
 }
 
 std::string to_string(const Book& b) {
-    return "Title: " + b.title() + "\nAuthor: " + b.author().nameSurname() + "\nLanguage: " + b.language() + "\nGender: " + b.gender() +
-           "\nPublication Date: " + to_string(b.publicationDate()) + "\nISBN: " + b.ISBN();
+    return "Title: " + b.title() + ", Author: " + b.author().nameSurname() + ", Language: " + b.language() + ", Gender: " + b.gender() +
+           " Publication Date: " + to_string(b.publicationDate()) + ", ISBN: " + b.ISBN();
 }

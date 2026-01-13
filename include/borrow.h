@@ -7,25 +7,18 @@ class Borrow {
 public:
     Borrow(const Reader& borrower,
            const Book& borrowedBook,
-           const Date& borrowDate,
-           const Date& returnDate,
-           bool isReturned);
+           const Date& borrowDate);
     Borrow(const Borrow& other);
 
     Reader borrower() const;
     Book borrowedBook() const;
     Date borrowDate() const;
-    Date returnDate() const;
-    bool returnStatus() const;
 
 private:
     Reader borrower_;
     Book borrowedBook_;
     Date borrowDate_;
     Date returnDate_;
-    bool isReturned_;
 };
-
-void loanBook(Reader& loaner, Book& borrowRecord);
 
 #endif // BORROW_H

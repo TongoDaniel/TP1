@@ -14,6 +14,14 @@ public:
     void addReader(const Reader& r);
     void addBorrow(const Borrow& br);
 
+    const std::vector<Book> booksByAuthor(int authorId) const;
+    bool AuthorExists(int authorId) const;
+    bool BookExists(const std::string& ISBN) const;
+    bool ReaderExists(const std::string& memberID) const;
+
+    Reader getReaderByID(const std::string& memberID) const;
+    Book getBookByISBN(const std::string& ISBN) const;
+
 
 private:
     std::vector<Book> books_;

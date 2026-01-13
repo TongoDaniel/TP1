@@ -29,6 +29,6 @@ void Reader::addBorrowedBook(const std::string& idBorrowedBooks) {
 }
 
 std::string to_string(const Reader& reader) {
-    return "Reader Name: " + reader.name() + " " + reader.surname() +
-           "\nMember ID: " + reader.memberID();
+    return reader.name() + " " + reader.surname() +
+           "(Member ID: " + reader.memberID() + ")";
 }

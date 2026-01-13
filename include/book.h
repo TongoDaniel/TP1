@@ -24,7 +24,7 @@ public:
     bool isAvailable() const;
     void setStatus(bool available);
 
-    std::vector<std::string> borrowers() const;
+    const std::vector<std::string>& borrowers() const;
     void addBorrower(const std::string& idBorrowers);
 
 

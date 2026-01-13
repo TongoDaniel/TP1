@@ -3,11 +3,16 @@
 
 #include "borrow.h"
 class Library {
-
-    std::vector<Book> getBooks() const;
-    std::vector<Reader> getReaders() const;
-    std::vector<Author> getAuthors() const;
-    std::vector<Borrow> getBorrows() const;
+public:
+    const std::vector<Book> books() const;
+    const std::vector<Reader> readers() const;
+    const std::vector<Author> authors() const;
+    const std::vector<Borrow> borrows() const;
+    
+    void addAuthor(const Author& a);
+    void addBook(const Book& b);
+    void addReader(const Reader& r);
+    void addBorrow(const Borrow& br);
 
 
 private:
@@ -17,6 +22,7 @@ private:
     std::vector<Borrow> borrows_;
 
 };
+
 
 
 #endif // LIBRARY_H

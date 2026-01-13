@@ -21,7 +21,7 @@ std::string Reader::memberID() const {
     return memberID_;
 }
 
-std::vector<std::string> Reader::borrowedBooks() const {
+const std::vector<std::string>& Reader::borrowedBooks() const {
     return idBorrowedBooks_;
 }
 void Reader::addBorrowedBook(const std::string& idBorrowedBooks) {

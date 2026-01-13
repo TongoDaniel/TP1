@@ -15,7 +15,7 @@ public:
     std::string surname() const;
     std::string memberID() const;
 
-    std::vector<std::string> borrowedBooks() const;
+    const std::vector<std::string>& borrowedBooks() const;
     void addBorrowedBook(const std::string& idBorrowedBooks);
 
 private:

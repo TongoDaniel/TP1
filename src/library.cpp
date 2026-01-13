@@ -1,14 +1,30 @@
 #include "../include/library.h"
 
-std::vector<Book> Library::getBooks() const {
+
+const std::vector<Book> Library::books() const {
     return books_;
 }
-std::vector<Reader> Library::getReaders() const {
+const std::vector<Reader> Library::readers() const {
     return readers_;
 }
-std::vector<Author> Library::getAuthors() const {
+const std::vector<Author> Library::authors() const {
     return authors_;
 }
-std::vector<Borrow> Library::getBorrows() const {
+const std::vector<Borrow> Library::borrows() const {
     return borrows_;
 }
+
+void Library::addAuthor(const Author& a) {
+    authors_.push_back(a);
+}
+void Library::addBook(const Book& b) {
+    books_.push_back(b);
+}
+void Library::addReader(const Reader& r) {
+    readers_.push_back(r);
+}
+void Library::addBorrow(const Borrow& br) {
+    borrows_.push_back(br);
+}
+
+

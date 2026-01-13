@@ -47,7 +47,7 @@ void Book::setStatus(bool available) {
     available_ = available;
 }
 
-std::vector<std::string> Book::borrowers() const {
+const std::vector<std::string>& Book::borrowers() const {
     return idBorrowers_;
 }
 void Book::addBorrower(const std::string& idBorrowers) {
